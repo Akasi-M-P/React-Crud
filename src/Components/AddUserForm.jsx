@@ -36,7 +36,6 @@ export default class AddUserForm extends Component {
     return (
       <div>
         <div className="login">
-          <h1 className="User-head">Add Users</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
