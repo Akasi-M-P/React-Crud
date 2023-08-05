@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Component } from "react";
+import { connect } from "react-redux";
+import { editUser } from "../Components/actions";
 
-export default class EditUserForm extends Component {
+class EditUserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,9 +20,19 @@ export default class EditUserForm extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-
-    console.log(this.state);
   };
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.props.editUser(this.state.id, this.state);
+  //   this.setState({
+  //     name: "",
+  //     email: "",
+  //     role: "",
+  //     gen: "",
+  //   });
+  //   this.props.closeModal();
+  // };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +43,6 @@ export default class EditUserForm extends Component {
       role: "",
       gen: "",
     });
-
     this.props.closeModal();
   };
 
@@ -86,3 +97,6 @@ export default class EditUserForm extends Component {
     );
   }
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export default connect(null, { editUser })(EditUserForm);

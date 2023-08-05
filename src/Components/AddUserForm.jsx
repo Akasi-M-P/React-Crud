@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Component } from "react";
+import { connect } from "react-redux";
+import { addUser } from "../Components/actions";
 
-export default class AddUserForm extends Component {
+class AddUserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +23,16 @@ export default class AddUserForm extends Component {
     console.log(this.state);
   };
 
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.props.addUser(this.state);
+  //   this.setState({
+  //     name: "",
+  //     email: "",
+  //     role: "",
+  //     gen: "",
+  //   });
+  // };
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addUser(this.state);
@@ -81,3 +93,6 @@ export default class AddUserForm extends Component {
     );
   }
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export default connect(null, { addUser })(AddUserForm);

@@ -3,11 +3,18 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import EditUserForm from "./EditUserForm";
+import { connect } from "react-redux";
+import { deleteUser } from "../Components/actions";
 
 const User = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // const handleDelete = (e) => {
+  //   e.preventDefault();
+  //   props.deleteUser(props.userInfo.id);
+  // };
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -62,4 +69,5 @@ const User = (props) => {
     </>
   );
 };
-export default User;
+// eslint-disable-next-line react-refresh/only-export-components
+export default connect(null, { deleteUser })(User);
